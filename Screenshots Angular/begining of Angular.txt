@@ -1,0 +1,51 @@
+//////app.components.html////////
+<div style="text-align:center">
+  <h1 [title]="hover">
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<button (click)="logout()">Logout</button>
+
+<div *ngIf='isLogin'>
+
+  <div *ngFor="let user of users">
+    <div style="background: green; padding: 20px">
+      Name:{{user.name}}
+      <br>
+      Age: {{user.age}}
+      <br>
+      Email:{{user.email}}
+    </div>
+
+    <button (click)="addToFriends(user)">Add to friend</button>
+  </div>
+
+</div>
+
+////////app.components.ts//////////
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'angularintro';
+  hover ='Hello';
+  isLogin = true;
+  users = [
+    {name: 'Viktor', age: 23, email: 'sod@gmail.com'},
+    {name: 'Viktoria', age: 238, email: 'sodioo@gmail.com'},
+    {name: 'Vi', age: 2, email: 'soda@gmail.com'}
+  ];
+
+  addToFriends(user) {
+    console.log(`User  ${user.name} added`)
+  }
+
+  logout() {
+    this.isLogin = !this.isLogin
+  }
+}

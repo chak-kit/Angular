@@ -1,0 +1,20 @@
+<form #ref="ngForm">
+  <input type="text" required="required" [(ngModel)]="formObject.name" name="name">
+  <input type="number" [(ngModel)]="formObject.age" name="age" min="10" max="90">
+  <input type="radio" [(ngModel)]="formObject.gender" name="gender" value="Male">
+  <input type="radio" [(ngModel)]="formObject.gender" name="gender" value="Female">
+  <input type="checkbox" [(ngModel)]="formObject.js" name="JS">
+  <input type="checkbox" [(ngModel)]="formObject.java" name="Java">
+  <input type="checkbox" [(ngModel)]="formObject.c1" name="C1">
+  <select name="status" #ageRef="ngModel"
+          required
+          [(ngModel)]="formObject.status"
+          [ngStyle]="{border: ageRef.invalid && ageRef.untouched ? '1px solid red' : '1px solid blue'}">
+    <option value="jun">JUN</option>
+    <option value="jun">MID</option>
+    <option value="jun">SIN</option>
+  </select>
+  <button (click)="showForm()" [disabled]="ref.invalid">SEND</button>
+</form>
+
+
