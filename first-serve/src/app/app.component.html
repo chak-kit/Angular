@@ -1,3 +1,5 @@
-<app-book> </app-book>
-<app-book> </app-book>
-<app-book> </app-book>
+<app-book *ngFor="let obj of objects"
+          [objInput]="obj"
+          (deleteMe)="deleteObject($event)"
+></app-book>
+

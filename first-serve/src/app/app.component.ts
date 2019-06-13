@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'first-serve';
+
+  objects = [{
+    name: 'Ira',
+    age: 26,
+    gender: 'Female'
+  },
+    {
+      name: 'Taras',
+      age: 34,
+      gender: 'Male'
+    }];
+
+  deleteObject(ob) {
+    const index = this.objects.indexOf(ob);
+    this.objects.splice(index, 1);
+  }
 }
